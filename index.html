@@ -1,0 +1,370 @@
+﻿<link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<link href="bower_components/jquery-resizable-columns/dist/jquery.resizableColumns.css" rel="stylesheet" />
+<link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href="public/css/ia-grid.css" rel="stylesheet" />
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/jquery-resizable-columns/dist/jquery.resizableColumns.js"></script>
+<script src="bower_components/knockout/dist/knockout.js"></script>
+<script src="bower_components/lodash/dist/lodash.min.js"></script>
+<script src="public/js/main.js"></script>
+<script src="public/js/ia-grid.js"></script>
+
+<div class="container" id="letters-grid" style="margin-top: 20px;" data-bind="iaGrid: gridData">
+    
+</div>
+
+<script>
+    $(document).ready(function () {
+        var initialColumnsOrder = ko.observableArray([{
+            'field': 'arrange',
+            'label': 'NO.'
+        }, {
+            'field': 'statusName',
+            'label': 'Status'
+        }, {
+            'field': 'subject',
+            'label': 'Subject'
+        }, {
+            'field': 'fromCompanyName',
+            'label': 'From Company'
+        }, {
+            'field': 'fromContactName',
+            'label': 'From Contact'
+        }, {
+            'field': 'toCompanyName',
+            'label': 'To Company'
+        }, {
+            'field': 'toContactName',
+            'label': 'Attention'
+        }]);
+
+        var initialGroups = ko.observableArray([]);
+
+        var initialHiddenColumns = ko.observableArray([]);
+
+        var labels = {
+            'arrange': 'NO.',
+            'statusName': 'Status',
+            'subject': 'Subject',
+            'fromCompanyName': 'From Company',
+            'fromContactName': 'From Contact',
+            'toCompanyName': 'To Company',
+            'toContactName': 'Attention'
+        };
+
+        var letters = ko.observableArray([{
+            "id": 136305,
+            "projectId": 2,
+            "projectName": "100\\ Phase 1",
+            "fromCompanyId": 10293,
+            "fromCompanyName": "Other",
+            "fromContactId": 20815,
+            "fromContactName": "Other",
+            "toCompanyId": 5,
+            "toCompanyName": "Degla CFM",
+            "toContactId": 11,
+            "toContactName": "Taher Abouraya",
+            "subject": "Newgiza Letter ",
+            "refDoc": null,
+            "message": null,
+            "arrange": 1256,
+            "replyId": null,
+            "disciplineId": null,
+            "disciplineName": null,
+            "hasReply": null,
+            "docDate": "2017-03-15T14:18:00",
+            "contractId": null,
+            "statusName": "Opened",
+            "status": true,
+            "docType": null,
+            "docTypeName": null,
+            "docNo": null,
+            "doc_view": null,
+            "doc_link": null,
+            "doc_id": null,
+            "docCloseDate": null,
+            "replyDate": "2017-03-15T14:18:00",
+            "editable": null
+        }, {
+            "id": 136304,
+            "projectId": 2,
+            "projectName": "100\\ Phase 1",
+            "fromCompanyId": 75,
+            "fromCompanyName": "New Giza - After sales services department",
+            "fromContactId": 203,
+            "fromContactName": "Mahmoud El Toukhy",
+            "toCompanyId": 5,
+            "toCompanyName": "Degla CFM",
+            "toContactId": 11,
+            "toContactName": "Taher Abouraya",
+            "subject": "B121 DR 07",
+            "refDoc": null,
+            "message": null,
+            "arrange": 1255,
+            "replyId": null,
+            "disciplineId": null,
+            "disciplineName": null,
+            "hasReply": null,
+            "docDate": "2017-03-15T14:10:00",
+            "contractId": null,
+            "statusName": "Opened",
+            "status": true,
+            "docType": null,
+            "docTypeName": null,
+            "docNo": null,
+            "doc_view": null,
+            "doc_link": null,
+            "doc_id": null,
+            "docCloseDate": null,
+            "replyDate": "2017-03-15T14:10:00",
+            "editable": null
+        }, {
+            "id": 136303,
+            "projectId": 2,
+            "projectName": "100\\ Phase 1",
+            "fromCompanyId": 75,
+            "fromCompanyName": "New Giza - After sales services department",
+            "fromContactId": 203,
+            "fromContactName": "Mahmoud El Toukhy",
+            "toCompanyId": 5,
+            "toCompanyName": "Degla CFM",
+            "toContactId": 11,
+            "toContactName": "Taher Abouraya",
+            "subject": "inspection of building B01.",
+            "refDoc": null,
+            "message": null,
+            "arrange": 1254,
+            "replyId": null,
+            "disciplineId": null,
+            "disciplineName": null,
+            "hasReply": null,
+            "docDate": "2017-03-14T15:00:00",
+            "contractId": null,
+            "statusName": "Opened",
+            "status": true,
+            "docType": null,
+            "docTypeName": null,
+            "docNo": null,
+            "doc_view": null,
+            "doc_link": null,
+            "doc_id": null,
+            "docCloseDate": null,
+            "replyDate": "2017-03-14T15:00:00",
+            "editable": null
+        }, {
+            "id": 136302,
+            "projectId": 2,
+            "projectName": "100\\ Phase 1",
+            "fromCompanyId": 75,
+            "fromCompanyName": "New Giza - After sales services department",
+            "fromContactId": 203,
+            "fromContactName": "Mahmoud El Toukhy",
+            "toCompanyId": 5,
+            "toCompanyName": "Degla CFM",
+            "toContactId": 11,
+            "toContactName": "Taher Abouraya",
+            "subject": "Ceramic Not Available  ",
+            "refDoc": null,
+            "message": null,
+            "arrange": 1253,
+            "replyId": null,
+            "disciplineId": null,
+            "disciplineName": null,
+            "hasReply": null,
+            "docDate": "2017-03-14T14:56:00",
+            "contractId": null,
+            "statusName": "Opened",
+            "status": true,
+            "docType": null,
+            "docTypeName": null,
+            "docNo": null,
+            "doc_view": null,
+            "doc_link": null,
+            "doc_id": null,
+            "docCloseDate": null,
+            "replyDate": "2017-03-14T14:56:00",
+            "editable": null
+        }, {
+            "id": 136301,
+            "projectId": 2,
+            "projectName": "100\\ Phase 1",
+            "fromCompanyId": 75,
+            "fromCompanyName": "New Giza - After sales services department",
+            "fromContactId": 203,
+            "fromContactName": "Mahmoud El Toukhy",
+            "toCompanyId": 5,
+            "toCompanyName": "Degla CFM",
+            "toContactId": 11,
+            "toContactName": "Taher Abouraya",
+            "subject": "C225-C431 Ceramic ",
+            "refDoc": null,
+            "message": null,
+            "arrange": 1252,
+            "replyId": null,
+            "disciplineId": null,
+            "disciplineName": null,
+            "hasReply": null,
+            "docDate": "2017-03-14T14:52:00",
+            "contractId": null,
+            "statusName": "Opened",
+            "status": true,
+            "docType": null,
+            "docTypeName": null,
+            "docNo": null,
+            "doc_view": null,
+            "doc_link": null,
+            "doc_id": null,
+            "docCloseDate": null,
+            "replyDate": "2017-03-14T14:52:00",
+            "editable": null
+        }, {
+            "id": 136300,
+            "projectId": 2,
+            "projectName": "100\\ Phase 1",
+            "fromCompanyId": 10286,
+            "fromCompanyName": "Future",
+            "fromContactId": 20767,
+            "fromContactName": "Future",
+            "toCompanyId": 5,
+            "toCompanyName": "Degla CFM",
+            "toContactId": 11,
+            "toContactName": "Taher Abouraya",
+            "subject": "Proposal for Revised Prices for NH02 Flats ",
+            "refDoc": null,
+            "message": null,
+            "arrange": 1251,
+            "replyId": null,
+            "disciplineId": null,
+            "disciplineName": null,
+            "hasReply": null,
+            "docDate": "2017-03-14T14:49:00",
+            "contractId": null,
+            "statusName": "Opened",
+            "status": true,
+            "docType": null,
+            "docTypeName": null,
+            "docNo": null,
+            "doc_view": null,
+            "doc_link": null,
+            "doc_id": null,
+            "docCloseDate": null,
+            "replyDate": "2017-03-14T14:49:00",
+            "editable": null
+        }, {
+            "id": 136297,
+            "projectId": 2,
+            "projectName": "100\\ Phase 1",
+            "fromCompanyId": 10293,
+            "fromCompanyName": "Other",
+            "fromContactId": 20815,
+            "fromContactName": "Other",
+            "toCompanyId": 5,
+            "toCompanyName": "Degla CFM",
+            "toContactId": 11,
+            "toContactName": "Taher Abouraya",
+            "subject": "صرف التامين النهائى ",
+            "refDoc": null,
+            "message": null,
+            "arrange": 1,
+            "replyId": null,
+            "disciplineId": null,
+            "disciplineName": null,
+            "hasReply": null,
+            "docDate": null,
+            "contractId": null,
+            "statusName": "Opened",
+            "status": true,
+            "docType": null,
+            "docTypeName": null,
+            "docNo": null,
+            "doc_view": null,
+            "doc_link": null,
+            "doc_id": null,
+            "docCloseDate": null,
+            "replyDate": null,
+            "editable": null
+        }, {
+            "id": 136296,
+            "projectId": 2,
+            "projectName": "100\\ Phase 1",
+            "fromCompanyId": 10284,
+            "fromCompanyName": "Labinat Al Meamar",
+            "fromContactId": 20765,
+            "fromContactName": "Labinat1",
+            "toCompanyId": 5,
+            "toCompanyName": "Degla CFM",
+            "toContactId": 11,
+            "toContactName": "Taher Abouraya",
+            "subject": " تاخير استلام  ووجود معوقات ",
+            "refDoc": null,
+            "message": null,
+            "arrange": 1250,
+            "replyId": null,
+            "disciplineId": null,
+            "disciplineName": null,
+            "hasReply": null,
+            "docDate": "2017-03-14T11:23:00",
+            "contractId": null,
+            "statusName": "Opened",
+            "status": true,
+            "docType": null,
+            "docTypeName": null,
+            "docNo": null,
+            "doc_view": null,
+            "doc_link": null,
+            "doc_id": null,
+            "docCloseDate": null,
+            "replyDate": "2017-03-14T11:23:00",
+            "editable": null
+        }, {
+            "id": 136295,
+            "projectId": 2,
+            "projectName": "100\\ Phase 1",
+            "fromCompanyId": 31,
+            "fromCompanyName": "Universal Contracting Company",
+            "fromContactId": 68,
+            "fromContactName": "Omer Samy",
+            "toCompanyId": 5,
+            "toCompanyName": "Degla CFM",
+            "toContactId": 11,
+            "toContactName": "Taher Abouraya",
+            "subject": "Taking Over for Villa 27-28",
+            "refDoc": null,
+            "message": null,
+            "arrange": 1249,
+            "replyId": null,
+            "disciplineId": null,
+            "disciplineName": null,
+            "hasReply": null,
+            "docDate": null,
+            "contractId": null,
+            "statusName": "Opened",
+            "status": true,
+            "docType": null,
+            "docTypeName": null,
+            "docNo": null,
+            "doc_view": null,
+            "doc_link": null,
+            "doc_id": null,
+            "docCloseDate": null,
+            "replyDate": null,
+            "editable": null
+        }]);
+
+        var gridData = ko.observable({
+            data: letters,
+            columnsOrder: initialColumnsOrder,
+            hiddenColumns: initialHiddenColumns,
+            groups: initialGroups,
+            labels: labels
+        });
+
+        var model = {
+            gridData: gridData
+        };
+
+        ko.applyBindings(model);
+    });
+</script>

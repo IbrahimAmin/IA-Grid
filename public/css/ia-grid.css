@@ -1,0 +1,219 @@
+.dropdown.ia-grid {
+  margin-bottom: 16px;
+}
+
+.table.ia-grid > tbody:hover td {
+    color: transparent;
+    text-shadow: 0 0 3px #aaa;
+}
+
+.table.ia-grid > tbody:hover tr:hover td {
+    color: #333;
+    text-shadow: 0 1px 0 #fff;
+}
+
+.table tbody {
+    cursor: pointer;
+}
+
+.close-group {
+    width: 30px;
+    height: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.rc-handle-container {
+    float: right;
+}
+
+.rc-handle::before {
+    content: '\f0d7';
+    position: absolute;
+    left: -8px;
+    top: -12px;
+}
+
+.rc-handle {
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+    .rc-handle::before {
+        display: none;
+    }
+    
+    .table.ia-grid > thead,
+    .table.ia-grid > tfoot {
+        display: none;
+    }
+
+    .table.ia-grid {
+        border: none;
+    }
+
+    .table.ia-grid > tbody {
+        display: block;
+    }
+
+        .table.ia-grid > tbody > tr {
+            display: block;
+            border: 1px solid #e0e0e0;
+            border-radius: 2px;
+            margin-bottom: 1.6rem;
+        }
+
+            .table.ia-grid > tbody > tr > td {
+                background-color: #fff;
+                display: block;
+                vertical-align: middle;
+                text-align: right;
+                border: 0;
+            }
+
+                .table.ia-grid > tbody > tr > td[data-title]:before {
+                    content: attr(data-title);
+                    float: left;
+                    font-size: inherit;
+                    font-weight: 400;
+                    color: #757575;
+                }
+
+        .table.ia-grid > tbody:hover > tr > td[data-title]:before {
+            color: transparent;
+            text-shadow: 0 0 3px #aaa;
+        }
+
+        .table.ia-grid > tbody:hover > tr:hover > td[data-title]:before {
+            color: #333;
+            text-shadow: 0 1px 0 #fff;
+        }
+}
+
+.card {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.card {
+  margin-top: 10px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  background-clip: padding-box;
+  width: 400px;
+  margin: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+}
+
+.card .card-content {
+  border-radius: 0 0 2px 2px;
+  background-clip: padding-box;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex: 0.9;
+}
+
+.card .card-action {
+  border-top: 1px solid rgba(160, 160, 160, 0.2);
+  padding: 16px;
+  display: flex;
+  flex: 0.1;
+}
+
+.card .card-action a {
+  color: #2C97DE;
+  margin-right: 16px;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: bold;
+}
+
+.card .card-action a:hover {
+  color: #2280BF;
+  text-decoration: none;
+}
+
+.cards-container {
+    display: flex;
+    width: 100%;
+    height: 85%;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card-table {
+    table-layout: fixed;
+}
+
+td.group-value {
+    border: none!important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: right;
+}
+
+td.group-label {
+    font-weight: bold;
+    border: none!important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.card-selected .card.selected {
+    display: flex!important;
+    flex: 1;
+}
+
+.card-selected .card {
+    display: none!important;
+}
+
+.card-content .card-info {
+    flex: 1;    
+    padding: 16px;
+}
+
+.card-content .card-data {
+    display: none;
+}
+
+.card.selected .card-info {
+    padding-right: 16px;
+    border-right: 1px solid cornflowerblue;
+    display: none;
+}
+
+.card.selected .card-data {
+    display: block;
+    flex: 1;
+    max-width: 100%;
+    overflow: auto;
+    padding: 16px;
+}
+
+.card.selected .card-data::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+
+.card.selected .card-data::-webkit-scrollbar
+{
+  width: 6px;
+  background-color: #F5F5F5;
+}
+
+.card.selected .card-data::-webkit-scrollbar-thumb
+{
+  background-color: #000000;
+}
